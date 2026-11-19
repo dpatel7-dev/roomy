@@ -1,0 +1,11 @@
+{
+  "name": "roomy",
+  "version": "1.0.0",
+  "description": "Makes room on your computer, safely: shows what's using space, clears the easy things (old installers, caches, build leftovers) into the Trash, and puts them back if you change your mind.",
+  "bin": { "roomy": "bin/roomy.js" },
+  "scripts": { "test": "node --test", "start": "node bin/roomy.js" },
+  "engines": { "node": ">=18" },
+  "license": "MIT",
+  "repository": "github:dpatel7-dev/roomy",
+  "files": ["bin", "src", "install.sh", "install.ps1", "README.md", "CHANGELOG.md"]
+}
