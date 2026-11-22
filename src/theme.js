@@ -1,4 +1,5 @@
 'use strict';
+const LightDark = require('./lightdark'); // light or dark for every app, set in pca
 // roomy's colours: a tide pool. "pool" is dark, "shore" is light.
 
 const A = require('./ansi');
@@ -17,7 +18,8 @@ const THEMES = {
 };
 let current = THEMES.pool;
 let name = 'pool';
-function use(n) { name = THEMES[n] ? n : 'pool'; current = THEMES[name]; return current; }
+// light or dark for every app is set in pca: Shore when it's light, Pool when it's dark
+function use(n) { n = LightDark.pick(THEMES[n] ? n : 'pool', { light: 'shore', dark: 'pool', isLight: (x) => x === 'shore' }); name = THEMES[n] ? n : 'pool'; current = THEMES[name]; return current; }
 const t = () => current;
 const c = (key) => (s, extra = {}) => A.paint(s, { fg: current[key], ...extra });
 
